@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias untar='tar -xvf'
+
+sh /home/$USER/.bash/alias-completion.sh
