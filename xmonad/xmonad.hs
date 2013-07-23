@@ -68,7 +68,7 @@ myKeys = [
         , ((modm,                     xK_Right), nextWS)
         , ((modm,                     xK_Left),  prevWS)
         , ((modm,                     xK_z),     toggleWS)
-        , ((modm,                     xK_m),     withFocused $ sendMessage . maximizeRestore)
+        , ((modm,                     xK_m),     withFocused (sendMessage . maximizeRestore))
         , ((modm .|. shiftMask,       xK_k),     kill)
         , ((controlMask .|. mod1Mask, xK_Delete), spawn "slimlock")
         -- XF86AudioMute
