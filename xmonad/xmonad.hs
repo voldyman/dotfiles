@@ -3,13 +3,16 @@ import XMonad.Util.EZConfig
 import XMonad.Layout
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Maximize
+import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
+import XMonad.Layout.TwoPane
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Config.Xfce
 import XMonad.Layout.ResizableTile
 import XMonad.Actions.CycleWS
 import qualified XMonad.StackSet as W
+
 
 main = xmonad $ xfceConfig
         { layoutHook         = smartBorders $ myLayout
@@ -23,14 +26,15 @@ main = xmonad $ xfceConfig
         `additionalKeysP` myKeysP
         `additionalKeys` myKeys
 
-myLayout = avoidStruts (
+myLayout = maximize $ avoidStruts (
     tall |||
-    Mirror tall |||
-    Full
+    Full |||
+    TwoPane (3/100) (1/2) |||
+    Mirror tall
     ) |||
     noBorders (fullscreenFull Full)
     where
-    tall = ResizableTall 1 (3/100) (5/10) []
+        tall = ResizableTall 1 (3/100) (5/10) []
 
 myManageHook::ManageHook
 myManageHook = composeAll . concat $
@@ -69,7 +73,7 @@ myKeys = [
         , ((modm,                     xK_Left),  prevWS)
         , ((modm,                     xK_z),     toggleWS)
         , ((modm,                     xK_m),     withFocused (sendMessage . maximizeRestore))
-        , ((modm .|. shiftMask,       xK_k),     kill)
+        , ((modm .|. controlMask,       xK_k),     kill)
         , ((controlMask .|. mod1Mask, xK_Delete), spawn "slimlock")
         -- XF86AudioMute
         , ((0 , 0x1008ff12), spawn "amixer -q set Master toggle")
