@@ -27,8 +27,8 @@ main = xmonad $ xfceConfig
         `additionalKeys` myKeys
 
 myLayout = maximize $ avoidStruts (
-    tall |||
     Full |||
+    tall |||
     TwoPane (3/100) (1/2) |||
     Mirror tall
     ) |||
@@ -65,15 +65,15 @@ myKeysP = [
         ]
 modm = mod4Mask
 myKeys = [
-          ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-        , ((0, xK_Print), spawn "scrot")
+          ((controlMask, xK_Print),   spawn "sleep 0.2; scrot -s")
+        , ((0, xK_Print),             spawn "scrot")
         , ((modm .|. shiftMask,       xK_Right), shiftToNext >> nextWS)
         , ((modm .|. shiftMask,       xK_Left),  shiftToPrev >> prevWS)
         , ((modm,                     xK_Right), nextWS)
         , ((modm,                     xK_Left),  prevWS)
         , ((modm,                     xK_z),     toggleWS)
         , ((modm,                     xK_m),     withFocused (sendMessage . maximizeRestore))
-        , ((modm .|. controlMask,       xK_k),     kill)
+        , ((modm .|. controlMask,     xK_k),     kill)
         , ((controlMask .|. mod1Mask, xK_Delete), spawn "slimlock")
         -- XF86AudioMute
         , ((0 , 0x1008ff12), spawn "amixer -q set Master toggle")
