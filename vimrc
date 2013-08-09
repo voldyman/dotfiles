@@ -15,8 +15,10 @@ au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 
 set pastetoggle=<F2>
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
+" To paste from system clipboard use <leader> p
+nnoremap <Leader>p "+p
 
 " Mouse and backsp ace
 set mouse=a  " on OSX press ALT and click

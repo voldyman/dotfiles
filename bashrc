@@ -90,3 +90,5 @@ PATH=$PATH:/sbin
 export GOPATH=/home/voldyman/gocode
 source /home/$USER/.bash/prompt
 source /home/$USER/.bash/aliases
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux a

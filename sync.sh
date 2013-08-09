@@ -9,7 +9,7 @@
 
 dir=`pwd`                         # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc bash vimrc vim xmonad"    # list of files/folders to symlink in homedir
+files="bashrc bash vimrc vim xmonad tmux.conf"    # list of files/folders to symlink in homedir
 
 ##########
 
