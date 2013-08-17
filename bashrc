@@ -77,7 +77,6 @@ esac
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -90,5 +89,9 @@ PATH=$PATH:/sbin
 export GOPATH=/home/voldyman/gocode
 source /home/$USER/.bash/prompt
 source /home/$USER/.bash/aliases
+
+
+export TERM="screen-256color"
+
 [[ $- != *i* ]] && return
 [[ -z "$TMUX" ]] && tmux a
