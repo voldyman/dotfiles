@@ -1,0 +1,128 @@
+java MineSweep
+javac -g MineSweep.java 
+java MineSweep
+javac -g MineSweep.java 
+java MineSweep
+java MineSweep
+cd ..
+mkdir ProjectEuler
+cd ProjectEuler/
+mv ../test/MineSweep.java 01.java
+mv 01.java p01.java
+touch p02.java
+java -g p02.java 
+javac -g p02.java 
+javac -g p02.java 
+cat p01.java 
+javac -g p02.java 
+java p02
+javac -g p02.java 
+java p02
+javac -g p02.java 
+java p02
+javac -g p02.java 
+java p02
+javac -g p02.java 
+java p02
+javac -g p02.java 
+java p02
+javac -g p02.java 
+java p02
+javac -g p02.java 
+javac -g p02.java 
+javac -g p02.java 
+javac -g p02.java 
+javac -g p02.java 
+java p02
+javac -g p02.java 
+java p02
+touch p04.java
+javac -g p04.java 
+javac -g p04.java 
+javac -g p04.java 
+javac -g p04.java 
+javac -g p04.java 
+javac -g p04.java 
+java p04
+javac -g p04.java 
+java p04
+javac -g p04.java 
+java p04
+javac -g p04.java 
+java p04
+javac -g p04.java 
+java p04
+javac -g p04.java 
+java p04
+javac -g p04.java 
+javac -g p04.java 
+java p04
+javac -g p04.java 
+java p04
+cat p04.java | pastebinit 
+javac -g p04.java 
+java p04
+javac -g p04.java 
+java p04
+javac -g p04.java 
+java p04
+touch p05.java
+cd x
+mkdir cec-code
+cd clutter/
+cd ..
+cd cec-code/
+ls
+cd x
+cd cam-game/
+ls
+cd demo/
+ls
+find-file index.html 
+mkdir 01
+ls
+mv index.html PlayState.js res/ 01
+ls
+mkdir 02
+cd 02/
+cd ..
+python2 -m "SimpleHTTPServer"
+ls
+cd 01
+cd ../02
+cp ../01/index.html .
+python2 -m "SimpleHTTPServer"
+cd ..
+python2 -m "SimpleHTTPServer"
+ls 02
+cd 02/
+mv drawing.svg right.svg
+mkdir res
+mv *.svg res
+cd res/
+ls
+cd ../..
+python2 -m "SimpleHTTPServer"
+cd x/cam-game/demo/
+mkdir 03
+ls
+cd 03/
+touch index.html
+touch app.js
+cd ..
+mkdir 04
+cd 02/
+cd ..
+cd 04
+touch index.html
+touch app.js
+cp ../03/index.html .
+cp ../03/app.js /
+cp ../03/app.js .
+cd x/cam-game/demo/04/
+cat index.html 
+valac --pkg gtk+-3.0 hb.vala 
+valac --pkg gtk+-3.0 hb.vala 
+valac --pkg gtk+-3.0 hb.vala 
+./hb 
+cd ..
