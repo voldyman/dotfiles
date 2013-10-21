@@ -93,5 +93,5 @@ source /home/$USER/.bash/aliases
 
 export TERM="screen-256color"
 
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && tmux a
+#[[ $- != *i* ]] && return
+#[[ -z "$TMUX" ]] && tmux a
