@@ -89,9 +89,10 @@ PATH=$PATH:/sbin
 export GOPATH=/home/voldyman/gocode
 source /home/$USER/.bash/prompt
 source /home/$USER/.bash/aliases
-
+source /home/$USER/.bash/functions
 
 export TERM="screen-256color"
 
 #[[ $- != *i* ]] && return
 #[[ -z "$TMUX" ]] && tmux a
+

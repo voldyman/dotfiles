@@ -1,0 +1,27 @@
+function cfiles {
+    find -regextype posix-egrep -regex '.*\.h$|.*\.hpp$|.*\.c$|.*\.cpp|.*\.cc$'
+}
+
+function cgrep {
+   2>/dev/null grep -n "$@" $(cfiles) | nl | grep "$@"
+}
+
+function hfiles {
+    find -regextype posix-egrep -regex '.*\.h|.*\.hpp'
+}
+
+function hgrep {
+    2>/dev/null grep -n "$@" $(hfiles) | nl | grep "$@"
+}
+
+function pyfiles {
+    find -regextype posix-egrep -regex '.*\.py$' | grep -v '#'
+}
+
+function pygrep {
+   2>/dev/null grep -n "$@" $(pyfiles) | nl | grep "$@"
+}
+
+function yank {
+    grep "^\s*$@\s" | awk '{print $2}' | sed 's/-\([0-9]*\)-/:\1:/g' | awk -F: '{print $1 " +" $2}' | awk '{print $2 " " $1}' | xargs ${EDITOR:?EDITOR must be set.}
+}

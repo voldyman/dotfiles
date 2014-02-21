@@ -1,6 +1,7 @@
 ;; Config file by Akshay Shekher
 ;; most of the lines are borrowed from the internet
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/elpa/")
+
 ;; No Splash Screen
 (setq inhibit-splash-screen t)
 (setq auto-complete-mode t)
@@ -41,6 +42,9 @@
 (add-to-list 'auto-mode-alist '("\\.vapi$" . vala-mode))
 (add-to-list 'file-coding-system-alist '("\\.vala$" . utf-8))
 (add-to-list 'file-coding-system-alist '("\\.vapi$" . utf-8))
+
+;; Autocomplete mode
+(autoload 'auto-complete-mode "auto-complete.el" "Autocomplete minor mode" t)
 
 ;; PHP Mode
 (autoload 'php-mode "php-mode.el" "Php mode." t)
@@ -113,12 +117,50 @@
 )
 
 ;; Clear the eshell
-(defun eshell/clear ()
+(defun clear-eshell ()
   (interactive)
   (let ((inhibit-read-only t))
     (erase-buffer)))
+
+(defun eshell/clear ()
+  (clear-eshell))
+
+(define-minor-mode eshell-cust-mode
+  "Get your foos in the right places."
+  :lighter " cust"
+  :keymap (let ((map (make-sparse-keymap)))
+            (define-key map (kbd "C-c l") 'clear-eshell)
+            map))
 
 ;; Add ELPA package repository
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+;; Set go path
+(setenv "GOPATH" "/home/voldyman/x/go")
+
+;; Auto enable paredit when in clojure-mode
+(add-hook 'clojure-mode-hook (lambda ()
+                               (paredit-mode)
+                               (auto-complete-mode)))
+(add-hook 'eshell (lambda ()
+                    (eshell-cust-mode)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(windmove-default-keybindings 'meta)
+
+;; set font for all windows
+(add-to-list 'default-frame-alist '(font . "Monaco-10"))
+
