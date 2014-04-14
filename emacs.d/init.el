@@ -28,6 +28,15 @@
 ;; auto-complete using company mode
 (company-mode t)
 
+;; Lines and columns
+(global-linum-mode 1)
+(column-number-mode 1)
+
+;; Enabel recent files and disable backup and autosave file
+(recentf-mode 1)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
 ;; better defaults (?)
 (setq x-select-enable-clipboard t
       x-select-enable-primary t
@@ -38,14 +47,6 @@
       backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                "backups"))))
 
-;; Lines and columns
-(global-linum-mode 1)
-(column-number-mode 1)
-
-;; Enabel recent files and disable backup and autosave file
-(recentf-mode 1)
-(setq make-backup-files nil)
-(setq auto-save-default nil)
 
 ;; Vala mode
 (autoload 'vala-mode "vala-mode.el" "Major mode for editing Vala code." t)
@@ -63,6 +64,7 @@
 (c-set-offset 'inclass '4)
 (setq c-default-style "bsd"
       c-basic-offset 2)
+
 ;; Smooth scrolling
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 3))) ;; One line at a time
 (setq mouse-wheel-progressive-speed nil)            ;; Don't accelerate scrolling
@@ -73,11 +75,6 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 (size-indication-mode 1)
-
-;; Go fullscreen!
-(defun toggle-fullscreen ()
-  (interactive)
-  (set-frame-parameter nil 'fullscreen (if (global-set-key (kbd "<f11>") 'toggle-fullscreen))))
 
 ;; Deactivate menu-bar, tool-bar and scroll-bar
 ;;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
