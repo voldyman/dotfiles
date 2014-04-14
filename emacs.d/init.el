@@ -1,5 +1,9 @@
 ;; Config file by Akshay Shekher
 ;; most of the lines are borrowed from the internet
+
+;; activate all the packages (in particular autoloads)
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/elpa/")
 
 ;; No Splash Screen
