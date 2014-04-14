@@ -5,14 +5,19 @@
 
 
 (defvar required-packages
-      '(auto-complete
+      '(company-mode ;; better auto-complete
         color-theme-solarized zenburn-theme
         go-mode clojure-mode js2-mode
         markdown-mode php-mode
         cider idomenu
         nav
         vala-mode
-        web-mode))
+        web-mode
+        browser-kill-ring
+        anzu ;; show number of search matches
+        ido-vertical-mode
+        paredit 
+        undo-tree-mode))
 
 ;; Installs missing packages
 (defun install-missing-packages ()
