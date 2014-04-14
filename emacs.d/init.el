@@ -4,7 +4,7 @@
 
 ;; No Splash Screen
 (setq inhibit-splash-screen t)
-(setq auto-complete-mode t)
+
 ;; Indentation
 (setq-default indent-tabs-mode nil)
 (setq c-basic-indent 2)
@@ -16,6 +16,17 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 
+;; use ido vertical
+(ido-vertical-mode t)
+
+;; y/n is easier than yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; utf8 FTW!!
+(prefer-coding-system 'utf-8)
+
+;; auto-complete using company mode
+(company-mode t)
 
 ;; better defaults (?)
 (setq x-select-enable-clipboard t
@@ -42,9 +53,6 @@
 (add-to-list 'auto-mode-alist '("\\.vapi$" . vala-mode))
 (add-to-list 'file-coding-system-alist '("\\.vala$" . utf-8))
 (add-to-list 'file-coding-system-alist '("\\.vapi$" . utf-8))
-
-;; Autocomplete mode
-(autoload 'auto-complete-mode "auto-complete.el" "Autocomplete minor mode" t)
 
 ;; PHP Mode
 (autoload 'php-mode "php-mode.el" "Php mode." t)
@@ -138,12 +146,12 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ;; Set go path
-(setenv "GOPATH" "/home/voldyman/x/go")
+(setenv "GOPATH" "/home/voldyman/code/go")
 
 ;; Auto enable paredit when in clojure-mode
 (add-hook 'clojure-mode-hook (lambda ()
-                               (paredit-mode)
-                               (auto-complete-mode)))
+                               (paredit-mode)))
+
 (add-hook 'eshell (lambda ()
                     (eshell-cust-mode)))
 (custom-set-variables
@@ -168,4 +176,3 @@
 
 ;; set font for all windows
 (add-to-list 'default-frame-alist '(font . "Monaco-10"))
-
