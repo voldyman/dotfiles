@@ -1,0 +1,128 @@
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gdb ./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+gdb ./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+gdb ./main ~/Pictures/wallpaper-675419.png 
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o main main.c libimagequant.a liblodepng.a -lm
+./main ~/Pictures/wallpaper-675419.png 
+gcc -o pngo pngo.c -lpng
+./pngo 
+./pngo ~/Pictures/mfw2.png test.png
+./pngo ~/Pictures/Screenshot\ from\ 2014-10-10\ 00:00:34.png test.png
+./pngo ~/Pictures/avatar.png test.png
+clear
+gcc -o pngo pngo.c -lpng
+gcc -o pngo pngo.c -lpng
+./pngo ~/Pictures/avatar.png test.png
+gcc -o pngo pngo.c -lpng
+./pngo ~/Pictures/avatar.png test.png
+gcc -o pngo pngo.c -lpng
+./pngo ~/Pictures/avatar.png test.png
+gcc -o pngo pngo.c -lpng
+./pngo ~/Pictures/avatar.png test.png
+clear
+g++ -o lodePNG lodepng.cc -L~/code/lodepng -llodepng
+g++ -o lodePNG lodepng.cc -L~/code/lodepng ~/code/lodepng/liblodepng.so
+g++ -o lodePNG lodepng.cc -L~/code/lodepng ~/code/lodepng/liblodepng.so
+clear
+cd ../test/cpp/
+g++ -o lodePNG lodepng.cc -L~/code/lodepng ~/code/lodepng/liblodepng.so
+g++ -o lodePNG lodePNG.cc -L~/code/lodepng ~/code/lodepng/liblodepng.so
+g++ -o loadPNG loadPNG.cc -L~/code/lodepng ~/code/lodepng/liblodepng.so
+g++ -o loadPNG loadPNG.cc -L/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so
+clear
+./loadPNG ~/Pictures/mfw2.png
+clear
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng -llodepng
+clear
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng -llodepng
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng -llodepng
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng -llodepng
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng -llodepng
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng -llodepng
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng -llodepng
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng -llodepng
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so
+./loadPNG ~/Pictures/mfw2.png
+clear
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+clear
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+clear
+./loadPNG ~/Pictures/mfw2.png
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+./loadPNG ~/Pictures/mfw2.png
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+./loadPNG ~/Pictures/mfw2.png
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+./loadPNG ~/Pictures/mfw2.png
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11 -fpermissive
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+./loadPNG ~/Pictures/mfw2.png
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+./loadPNG ~/Pictures/mfw2.png
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+./loadPNG ~/Pictures/mfw2.png
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+./loadPNG ~/Pictures/mfw2.png
+g++ -o loadPNG loadPNG.cc -I/home/voldyman/code/lodepng ~/code/lodepng/liblodepng.so -I/home/voldyman/code/pngquant/lib/ ~/code/pngquant/lib/libpngquant.so -std=c++11
+./loadPNG ~/Pictures/mfw2.png
+cd ../code/dotfiles/
+git status
+ls
+git diff
+cat sync.sh 
+clear
+cd
+ll
+ls -l
+stat .emacs.d/
+ls
+git 
+clear
