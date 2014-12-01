@@ -141,7 +141,7 @@
 (global-set-key (kbd "<f10>") 'fix-indentation)
 
 ;; my theme
-;(load-theme 'tango-dark t)
+                                        ;(load-theme 'tango-dark t)
 (load-theme 'tangotango t)
 (setq linum-format "%4d ")
 
@@ -223,3 +223,17 @@
 ;; set font for all windows
 ;;(add-to-list 'default-frame-alist '(font . "Monaco-10"))
 (add-to-list 'default-frame-alist '(font . "Meslo LG S-10"))
+
+(define-abbrev-table 'global-abbrev-table '(
+    ("alpha" "α")
+    ("beta" "β")
+    ("gamma" "γ")
+    ("theta" "θ")
+    ("inf" "∞")
+    ("lambda" "λ")
+
+    ("ar1" "→")
+    ("ar2" "⇒")
+    ))
+
+(abbrev-mode t)

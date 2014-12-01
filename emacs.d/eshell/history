@@ -1,31 +1,6 @@
 gcc -o main main.c libimagequant.a liblodepng.a -lm
 ./main ~/Pictures/wallpaper-675419.png 
 gcc -o main main.c libimagequant.a liblodepng.a -lm
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-./main ~/Pictures/wallpaper-675419.png 
-gdb ./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-gdb ./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-gdb ./main ~/Pictures/wallpaper-675419.png 
-./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-gcc -o main main.c libimagequant.a liblodepng.a -lm
-./main ~/Pictures/wallpaper-675419.png 
-gcc -o main main.c libimagequant.a liblodepng.a -lm
 ./main ~/Pictures/wallpaper-675419.png 
 gcc -o main main.c libimagequant.a liblodepng.a -lm
 ./main ~/Pictures/wallpaper-675419.png 
@@ -126,3 +101,28 @@ stat .emacs.d/
 ls
 git 
 clear
+cd  ../code/
+cd dotfiles/
+ls
+cp ~/.emacs.d/ emacs.d/
+cp -r ~/.emacs.d/ emacs.d/
+git status
+cd 
+cd -
+mv emacs.d/.emacs.d/* emacs.d/
+git status
+gir rm emacs.d/.emacs.d/
+git rm emacs.d/.emacs.d/
+git rm emacs.d/.emacs.d
+rm -r emacs.d/.emacs.d/
+clear
+git status
+git diff
+clear
+git status
+git add emacs.d/
+rm -rf lauchpadlib/
+clear
+git status
+git commit -m "emacs.d update"
+git push origin master

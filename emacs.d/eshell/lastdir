@@ -1,6 +1,4 @@
-/home/voldyman/code/game/src
 /home/voldyman/code/game
-/home/voldyman/code
 /home/voldyman/code/SFML-Game-Development-Book/build
 /home/voldyman/code/SFML-Game-Development-Book/02_Resources
 /home/voldyman/code/SFML-Game-Development-Book/03_World
@@ -27,7 +25,8 @@
 ~/code/test/C
 /home/voldyman/code/lodepng
 /home/voldyman/code/test/cpp
-/home/voldyman/.emacs.d
-/home/voldyman/code/dotfiles
-/home/voldyman
 ~
+/home/voldyman/.emacs.d
+/home/voldyman/code
+/home/voldyman
+/home/voldyman/code/dotfiles

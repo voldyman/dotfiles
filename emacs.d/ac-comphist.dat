@@ -1,428 +1,432 @@
-((("printf" .
-   [3 0 0 0 0 0])
-  ("puts" .
-   [1 0 0 0])
-  ("result" .
+(((":alpha" .
    [1 0 0 0 0 0])
-  ("sleep" .
-   [1 0 0 0 0])
-  ("broadcast" .
-   [0 0 0 0 0 0 0 0 1])
-  ("packet" .
-   [1 0 1 0 0 0])
-  ("socket_fd" .
-   [2 0 0 1 0 0 0 0 0])
-  ("sendto" .
-   [1 0 0 0 0 0])
-  ("free_b_socket" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("list" .
-   [4 0 0 0])
-  ("free" .
-   [4 0 0 0])
-  ("sizeof" .
-   [0 0 0 1 0 0])
-  ("malloc" .
-   [1 0 0 0 0 0])
-  ("ifaddr" .
-   [1 0 0 0 0 0])
-  ("ifaddrs" .
-   [1 0 0 0 0 0 0])
-  ("ifa" .
-   [6 0 0])
-  ("NULL" .
-   [1 0 0 0])
-  ("b_socket" .
-   [8 0 0 0 0 0 0 0])
-  ("start" .
-   [1 0 0 0 0])
-  ("socket_list" .
-   [2 0 0 0 1 0 0 0 0 0 0])
-  ("struct" .
-   [0 0 0 0 1 0])
-  ("sockaddr" .
-   [1 0 0 0 1 0 0 1])
-  ("MULTICAST_PORT" .
-   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
-  ("htons" .
-   [1 0 0 0 0])
-  ("sin_port" .
-   [0 0 0 0 0 1 0 0])
-  ("MULTICAST_ADDRESS" .
-   [0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("inet_addr" .
-   [1 0 0 0 0 0 1 0 0])
-  ("s_addr" .
-   [0 0 2 0 0 0])
-  ("sin_addr" .
-   [2 0 0 0 0 2 0 0])
-  ("sin_family" .
-   [1 0 0 0 0 0 0 0 0 0])
-  ("memset" .
-   [1 0 0 0 0 0])
-  ("addr" .
-   [18 0 0 1])
-  ("sockaddr_in" .
-   [4 0 1 0 1 0 0 0 0 0 0])
-  ("SOCK_DGRAM" .
-   [0 0 0 0 0 1 0 0 0 0])
-  ("AF_INET" .
-   [0 0 0 1 1 0 0])
-  ("socket" .
-   [1 0 0 0 0 0])
-  ("fd" .
-   [5 0])
-  ("include" .
-   [4 0 0 0 0 0 0])
-  ("socket_fds" .
-   [2 0 1 0 0 0 0 1 0 3])
-  ("in" .
-   [5 0])
-  ("b_sockets" .
-   [0 0 1 0 2 0 1 0 7])
-  ("sockets" .
-   [1 0 0 0 0 0 0])
-  ("addrs" .
-   [1 0 0 0 0])
-  ("create_sockets" .
-   [1 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("broadcast_address" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
-  ("corrector_service" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
-  ("a" .
-   [2])
-  ("build_db" .
-   [1 0 0 0 0 0 0 0])
-  ("List" .
-   [4 0 0 0])
-  ("HashMap" .
-   [0 0 0 1 1 1 0])
-  ("Corrector" .
-   [1 0 0 0 0 0 0 0 2])
-  ("class" .
-   [1 0 0 0 0])
-  ("set_text" .
-   [1 0 0 0 0 0 0 0])
-  ("pack_start" .
-   [0 0 0 0 1 0 0 0 0 0])
-  ("label" .
-   [2 0 0 0 0])
-  ("Label" .
-   [1 0 0 0 0])
-  ("main" .
-   [1 0 0 0])
-  ("win" .
-   [6 0 0])
-  ("inp" .
-   [4 0 0])
-  ("correct" .
-   [3 0 0 0 1 0 0])
-  ("size" .
-   [6 0 0 0])
-  ("max_key" .
-   [2 0 0 0 0 0 0])
-  ("max" .
-   [4 0 0])
-  ("keys_arr" .
-   [2 0 0 0 0 0 0 0])
-  ("keys" .
-   [3 0 0 0])
-  ("to_string" .
-   [1 0 0 0 0 0 0 0 0])
-  ("length" .
-   [4 0 0 0 0 0])
-  ("continue" .
-   [2 0 0 0 0 0 0 0])
-  ("next" .
-   [4 0 0 0])
-  ("get_contents" .
-   [1 0 0 0 0 0 0 0 0 0 0 0])
-  ("chars" .
-   [2 0 0 0 0])
-  ("len" .
-   [1 0 0])
-  ("nWords" .
-   [10 0 2 0 0 0])
-  ("data" .
-   [5 0 0 0])
-  ("all_words" .
-   [1 0 0 0 1 0 0 0 0])
-  ("foreach" .
-   [8 0 0 2 0 0 0])
-  ("str" .
-   [8 0 0])
-  ("started" .
-   [3 0 0 0 0 0 0])
-  ("StringBuilder" .
-   [0 0 0 0 0 0 2 0 0 0 0 0 0])
-  ("char" .
-   [17 0 0 0])
-  ("word" .
-   [10 0 0 0])
-  ("contents" .
-   [9 0 0 0 3 1 0 0])
-  ("words" .
-   [8 0 1 0 0])
-  ("matches" .
-   [3 0 0 0 0 0 0])
-  ("Pixbuf" .
-   [1 0 0 0 0 0])
-  ("Gdk" .
-   [1 0 0])
-  ("get_loadable_icon" .
-   [0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0])
-  ("this" .
-   [1 0 0 0])
-  ("Widget" .
-   [3 0 0 0 0 0])
-  ("Gtk" .
-   [7 0 0])
-  ("ShellWidget" .
-   [0 0 0 0 1 0 0 0 0 0 0])
-  ("startup_plug" .
-   [0 0 0 0 0 0 0 0 1 0 0 0])
-  ("StartupPlug" .
-   [0 0 0 1 0 1 0 0 0 0 0])
-  ("ApplicationsPlug" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("get_widget" .
-   [0 0 0 0 0 1 0 0 0 0])
-  ("DefaultPlug" .
-   [0 0 0 0 0 0 0 0 1 0 0])
-  ("new" .
-   [9 0 0])
-  ("defaults_plug" .
-   [0 0 0 0 0 0 0 0 1 0 0 1 0])
-  ("main_window" .
-   [0 0 0 0 0 0 0 0 1 0 0])
-  ("plug_to_open" .
-   [0 0 0 0 0 0 0 1 0 0 0 0])
-  ("flags" .
-   [1 0 0 0 0])
-  ("args" .
-   [2 0 0 0])
-  ("tmp" .
-   [2 0 0])
-  ("unowned" .
-   [1 0 0 0 0 0 0])
-  ("string" .
-   [27 0 0 0 0 0])
-  ("should_animate_next_transition" .
-   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("get_arguments" .
-   [0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("command_line" .
-   [0 0 0 0 0 0 0 0 0 1 0 0])
-  ("save_as" .
-   [1 0 0 0 0 0 0])
-  ("message" .
-   [1 0 0 0 0 0 0])
-  ("warning" .
-   [2 0 0 0 0 0 0])
-  ("Error" .
-   [1 0 0 0 0])
-  ("catch" .
-   [1 0 0 1 0])
-  ("mounted" .
-   [3 0 0 0 0 0 0])
-  ("connect" .
-   [1 0 0 0 0 0 0])
-  ("try" .
-   [3 0 0])
-  ("file" .
-   [2 0 0 0])
-  ("mount_point" .
-   [2 0 0 0 0 0 0 0 0 0 0])
-  ("null" .
-   [11 0 0 0])
-  ("icon" .
-   [1 0 0 0])
-  ("icon_changed" .
-   [0 0 0 0 0 0 0 1 0 0 0 0])
-  ("retry_icon_load" .
-   [1 0 0 0 0 0 1 0 0 0 0 0 0 0 1])
-  ("print" .
-   [11 0 0 0 0])
-  ("direction" .
-   [3 0 0 0 2 0 0 0 2])
-  ("restore_easing_state" .
-   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("save_easing_state" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
-  ("set_opacity" .
-   [1 0 0 0 0 1 0 0 0 0 0])
-  ("false" .
-   [13 0 0 0 0])
-  ("EASE_OUT_QUAD" .
-   [0 0 1 1 0 0 0 0 0 0 0 0 0])
-  ("AnimationMode" .
-   [0 0 0 1 1 0 0 0 0 0 0 0 0])
-  ("spinner" .
-   [5 0 0 0 0 0 1])
-  ("set_easing_duration" .
-   [0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("mode" .
-   [1 0 0 0])
-  ("set_easing_mode" .
-   [0 0 0 0 0 0 2 1 0 0 0 0 0 0 0])
-  ("container" .
-   [3 0 0 0 0 0 0 0 1])
-  ("set_x" .
-   [1 0 0 0 0])
-  ("copy" .
-   [5 0 0 0])
-  ("duration" .
-   [1 0 1 0 0 0 0 0])
-  ("show-paren-mode" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
-  ("-1" .
-   [1 0])
-  ("search_entry" .
-   [0 0 0 0 0 0 0 0 0 0 1 0])
-  ("search_entry_key_press" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
-  ("return" .
-   [19 0 0 0 0 1])
-  ("true" .
-   [10 0 0 0])
-  ("hide" .
-   [1 0 0 0])
-  ("clear_children" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0 0])
-  ("update" .
-   [0 0 0 0 0 1])
-  ("popularity" .
-   [0 0 0 0 0 1 0 0 0 0])
-  ("populate_" .
-   [0 0 0 0 0 0 0 0 1])
-  ("populate_switcher" .
-   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("show_all" .
-   [1 0 0 0 0 0 0 0])
-  ("IconLoadFallbackMethod" .
-   [0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("if" .
-   [3 0])
-  ("check_icon_again" .
-   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("Slingshot" .
-   [0 0 0 0 0 0 0 0 1])
-  ("icon_theme" .
-   [0 0 0 0 0 1 0 0 0 1])
-  ("RECHECK_TIMEOUT" .
-   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("update_icon" .
-   [0 0 0 0 0 0 1 0 0 0 0])
-  ("icon_type" .
-   [2 0 0 0 0 0 0 1 2])
-  ("IconType" .
-   [1 0 0 0 0 4 0 1])
-  ("THEMED" .
-   [0 0 2 1 0 0])
-  ("LOADABLE" .
-   [0 0 2 0 1 0 0 1])
-  ("public" .
-   [7 0 0 0 0 0])
-  ("load_icon" .
-   [2 0 0 0 0 0 0 0 0])
-  ("case" .
-   [5 0 0 0])
-  ("break" .
-   [4 0 0 0 0])
-  ("default" .
-   [1 0 0 0 0 0 3])
-  ("private" .
-   [2 0 0 0 1 0 0])
-  ("LoadableIcon" .
-   [1 0 0 0 0 0 0 0 1 0 0 0])
-  ("loadable_icon" .
-   [0 0 0 0 0 1 0 0 1 1 0 0 0])
-  ("is_scrolling" .
-   [0 0 0 1 0 0 0 0 0 0 1 1])
-  ("else" .
-   [1 0 0 0])
-  ("Timeout" .
-   [0 0 0 0 1 0 0])
-  ("add" .
-   [4 0 0])
-  ("Meta" .
-   [3 0 0 0])
-  ("MotionDirection" .
-   [0 0 0 0 0 0 3 0 0 0 0 0 0 0 0])
-  ("RIGHT" .
-   [4 0 0 0 0])
-  ("LEFT" .
-   [4 0 0 0])
-  ("switch" .
-   [0 0 0 0 0 1])
-  ("event" .
-   [7 0 0 0 0])
-  ("ScrollDirection" .
-   [0 0 0 0 1 0 0 3 0 0 0 0 0 0 0])
-  ("UP" .
-   [1 0])
-  ("var" .
-   [14 0 0])
-  ("debug" .
+  ("alpha" .
    [3 0 0 0 0])
-  ("int" .
-   [14 0 0])
-  ("axes" .
-   [1 0 0 0])
-  ("dx" .
-   [1 0])
-  ("enumerator" .
-   [0 0 0 0 0 0 0 0 0 1])
-  ("file_info" .
-   [1 0 0 0 0 0 0 0 0])
-  ("Indicator" .
-   [1 0 1 0 2 0 0 0 7])
-  ("Object" .
-   [3 0 1 2 0 0])
-  ("Gee" .
+  ("last_saved_content" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("box" .
    [6 0 0])
-  ("ArrayList" .
-   [3 0 0 0 0 3 1 0 0])
-  ("indicators" .
-   [3 0 1 0 0 0 1 0 0 0])
-  ("ind" .
+  ("entries" .
+   [2 0 0 0 0 0 0])
+  ("get_entries" .
+   [0 0 0 0 0 0 0 0 1 0 0])
+  ("get" .
    [1 0 0])
-  ("load_indicator" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("File" .
+  ("iter" .
+   [14 0 0 0])
+  ("while" .
+   [5 0 0 0 0])
+  ("entry" .
+   [5 0 0 0 0])
+  ("menu" .
+   [2 0 0 0])
+  ("set" .
+   [5 0 0])
+  ("menuitem" .
+   [3 0 0 0 0 0 0 1])
+  ("Menu" .
+   [1 0 0 0])
+  ("image" .
+   [2 0 0 0 0])
+  ("indicator" .
+   [9 0 0 0 0 0 0 0 0])
+  ("menubar" .
+   [2 0 0 0 0 0 0])
+  ("path" .
    [1 0 0 0])
   ("parent_dir" .
    [0 0 0 0 1 0 0 0 0 0])
-  ("path" .
+  ("File" .
    [1 0 0 0])
-  ("menubar" .
-   [2 0 0 0 0 0 0])
-  ("indicator" .
-   [9 0 0 0 0 0 0 0 0])
-  ("image" .
-   [2 0 0 0 0])
-  ("Menu" .
-   [1 0 0 0])
-  ("menuitem" .
-   [3 0 0 0 0 0 0 1])
-  ("set" .
-   [5 0 0])
-  ("menu" .
-   [2 0 0 0])
-  ("entry" .
-   [5 0 0 0 0])
-  ("while" .
-   [5 0 0 0 0])
-  ("iter" .
-   [14 0 0 0])
-  ("get" .
+  ("load_indicator" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ind" .
    [1 0 0])
-  ("get_entries" .
-   [0 0 0 0 0 0 0 0 1 0 0])
-  ("entries" .
-   [2 0 0 0 0 0 0])
-  ("box" .
+  ("indicators" .
+   [3 0 1 0 0 0 1 0 0 0])
+  ("ArrayList" .
+   [3 0 0 0 0 3 1 0 0])
+  ("Gee" .
    [6 0 0])
-  ("last_saved_content" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])))
+  ("Object" .
+   [3 0 1 2 0 0])
+  ("Indicator" .
+   [1 0 1 0 2 0 0 0 7])
+  ("file_info" .
+   [1 0 0 0 0 0 0 0 0])
+  ("enumerator" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("dx" .
+   [1 0])
+  ("axes" .
+   [1 0 0 0])
+  ("int" .
+   [14 0 0])
+  ("debug" .
+   [3 0 0 0 0])
+  ("var" .
+   [14 0 0])
+  ("UP" .
+   [1 0])
+  ("ScrollDirection" .
+   [0 0 0 0 1 0 0 3 0 0 0 0 0 0 0])
+  ("event" .
+   [7 0 0 0 0])
+  ("switch" .
+   [0 0 0 0 0 1])
+  ("LEFT" .
+   [4 0 0 0])
+  ("RIGHT" .
+   [4 0 0 0 0])
+  ("MotionDirection" .
+   [0 0 0 0 0 0 3 0 0 0 0 0 0 0 0])
+  ("Meta" .
+   [3 0 0 0])
+  ("add" .
+   [4 0 0])
+  ("Timeout" .
+   [0 0 0 0 1 0 0])
+  ("else" .
+   [1 0 0 0])
+  ("is_scrolling" .
+   [0 0 0 1 0 0 0 0 0 0 1 1])
+  ("loadable_icon" .
+   [0 0 0 0 0 1 0 0 1 1 0 0 0])
+  ("LoadableIcon" .
+   [1 0 0 0 0 0 0 0 1 0 0 0])
+  ("private" .
+   [2 0 0 0 1 0 0])
+  ("default" .
+   [1 0 0 0 0 0 3])
+  ("break" .
+   [4 0 0 0 0])
+  ("case" .
+   [5 0 0 0])
+  ("load_icon" .
+   [2 0 0 0 0 0 0 0 0])
+  ("public" .
+   [7 0 0 0 0 0])
+  ("LOADABLE" .
+   [0 0 2 0 1 0 0 1])
+  ("THEMED" .
+   [0 0 2 1 0 0])
+  ("IconType" .
+   [1 0 0 0 0 4 0 1])
+  ("icon_type" .
+   [2 0 0 0 0 0 0 1 2])
+  ("update_icon" .
+   [0 0 0 0 0 0 1 0 0 0 0])
+  ("RECHECK_TIMEOUT" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("icon_theme" .
+   [0 0 0 0 0 1 0 0 0 1])
+  ("Slingshot" .
+   [0 0 0 0 0 0 0 0 1])
+  ("check_icon_again" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("if" .
+   [3 0])
+  ("IconLoadFallbackMethod" .
+   [0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("show_all" .
+   [1 0 0 0 0 0 0 0])
+  ("populate_switcher" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("populate_" .
+   [0 0 0 0 0 0 0 0 1])
+  ("popularity" .
+   [0 0 0 0 0 1 0 0 0 0])
+  ("update" .
+   [0 0 0 0 0 1])
+  ("clear_children" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("hide" .
+   [1 0 0 0])
+  ("true" .
+   [10 0 0 0])
+  ("return" .
+   [19 0 0 0 0 1])
+  ("search_entry_key_press" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("search_entry" .
+   [0 0 0 0 0 0 0 0 0 0 1 0])
+  ("-1" .
+   [1 0])
+  ("show-paren-mode" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("duration" .
+   [1 0 1 0 0 0 0 0])
+  ("copy" .
+   [5 0 0 0])
+  ("set_x" .
+   [1 0 0 0 0])
+  ("container" .
+   [3 0 0 0 0 0 0 0 1])
+  ("set_easing_mode" .
+   [0 0 0 0 0 0 2 1 0 0 0 0 0 0 0])
+  ("mode" .
+   [1 0 0 0])
+  ("set_easing_duration" .
+   [0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("spinner" .
+   [5 0 0 0 0 0 1])
+  ("AnimationMode" .
+   [0 0 0 1 1 0 0 0 0 0 0 0 0])
+  ("EASE_OUT_QUAD" .
+   [0 0 1 1 0 0 0 0 0 0 0 0 0])
+  ("false" .
+   [13 0 0 0 0])
+  ("set_opacity" .
+   [1 0 0 0 0 1 0 0 0 0 0])
+  ("save_easing_state" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("restore_easing_state" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("direction" .
+   [3 0 0 0 2 0 0 0 2])
+  ("print" .
+   [11 0 0 0 0])
+  ("retry_icon_load" .
+   [1 0 0 0 0 0 1 0 0 0 0 0 0 0 1])
+  ("icon_changed" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("icon" .
+   [1 0 0 0])
+  ("null" .
+   [11 0 0 0])
+  ("mount_point" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("file" .
+   [2 0 0 0])
+  ("try" .
+   [3 0 0])
+  ("connect" .
+   [1 0 0 0 0 0 0])
+  ("mounted" .
+   [3 0 0 0 0 0 0])
+  ("catch" .
+   [1 0 0 1 0])
+  ("Error" .
+   [1 0 0 0 0])
+  ("warning" .
+   [2 0 0 0 0 0 0])
+  ("message" .
+   [1 0 0 0 0 0 0])
+  ("save_as" .
+   [1 0 0 0 0 0 0])
+  ("command_line" .
+   [0 0 0 0 0 0 0 0 0 1 0 0])
+  ("get_arguments" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("should_animate_next_transition" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("string" .
+   [27 0 0 0 0 0])
+  ("unowned" .
+   [1 0 0 0 0 0 0])
+  ("tmp" .
+   [2 0 0])
+  ("args" .
+   [2 0 0 0])
+  ("flags" .
+   [1 0 0 0 0])
+  ("plug_to_open" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("main_window" .
+   [0 0 0 0 0 0 0 0 1 0 0])
+  ("defaults_plug" .
+   [0 0 0 0 0 0 0 0 1 0 0 1 0])
+  ("new" .
+   [9 0 0])
+  ("DefaultPlug" .
+   [0 0 0 0 0 0 0 0 1 0 0])
+  ("get_widget" .
+   [0 0 0 0 0 1 0 0 0 0])
+  ("ApplicationsPlug" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("StartupPlug" .
+   [0 0 0 1 0 1 0 0 0 0 0])
+  ("startup_plug" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("ShellWidget" .
+   [0 0 0 0 1 0 0 0 0 0 0])
+  ("Gtk" .
+   [7 0 0])
+  ("Widget" .
+   [3 0 0 0 0 0])
+  ("this" .
+   [1 0 0 0])
+  ("get_loadable_icon" .
+   [0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0])
+  ("Gdk" .
+   [1 0 0])
+  ("Pixbuf" .
+   [1 0 0 0 0 0])
+  ("matches" .
+   [3 0 0 0 0 0 0])
+  ("words" .
+   [8 0 1 0 0])
+  ("contents" .
+   [9 0 0 0 3 1 0 0])
+  ("word" .
+   [10 0 0 0])
+  ("char" .
+   [17 0 0 0])
+  ("StringBuilder" .
+   [0 0 0 0 0 0 2 0 0 0 0 0 0])
+  ("started" .
+   [3 0 0 0 0 0 0])
+  ("str" .
+   [8 0 0])
+  ("foreach" .
+   [8 0 0 2 0 0 0])
+  ("all_words" .
+   [1 0 0 0 1 0 0 0 0])
+  ("data" .
+   [5 0 0 0])
+  ("nWords" .
+   [10 0 2 0 0 0])
+  ("len" .
+   [1 0 0])
+  ("chars" .
+   [2 0 0 0 0])
+  ("get_contents" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("next" .
+   [4 0 0 0])
+  ("continue" .
+   [2 0 0 0 0 0 0 0])
+  ("length" .
+   [4 0 0 0 0 0])
+  ("to_string" .
+   [1 0 0 0 0 0 0 0 0])
+  ("keys" .
+   [3 0 0 0])
+  ("keys_arr" .
+   [2 0 0 0 0 0 0 0])
+  ("max" .
+   [4 0 0])
+  ("max_key" .
+   [2 0 0 0 0 0 0])
+  ("size" .
+   [6 0 0 0])
+  ("correct" .
+   [3 0 0 0 1 0 0])
+  ("inp" .
+   [4 0 0])
+  ("win" .
+   [6 0 0])
+  ("main" .
+   [1 0 0 0])
+  ("Label" .
+   [1 0 0 0 0])
+  ("label" .
+   [2 0 0 0 0])
+  ("pack_start" .
+   [0 0 0 0 1 0 0 0 0 0])
+  ("set_text" .
+   [1 0 0 0 0 0 0 0])
+  ("class" .
+   [1 0 0 0 0])
+  ("Corrector" .
+   [1 0 0 0 0 0 0 0 2])
+  ("HashMap" .
+   [0 0 0 1 1 1 0])
+  ("List" .
+   [4 0 0 0])
+  ("build_db" .
+   [1 0 0 0 0 0 0 0])
+  ("a" .
+   [2])
+  ("corrector_service" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("broadcast_address" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("create_sockets" .
+   [1 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("addrs" .
+   [1 0 0 0 0])
+  ("sockets" .
+   [1 0 0 0 0 0 0])
+  ("b_sockets" .
+   [0 0 1 0 2 0 1 0 7])
+  ("in" .
+   [5 0])
+  ("socket_fds" .
+   [2 0 1 0 0 0 0 1 0 3])
+  ("include" .
+   [4 0 0 0 0 0 0])
+  ("fd" .
+   [5 0])
+  ("socket" .
+   [1 0 0 0 0 0])
+  ("AF_INET" .
+   [0 0 0 1 1 0 0])
+  ("SOCK_DGRAM" .
+   [0 0 0 0 0 1 0 0 0 0])
+  ("sockaddr_in" .
+   [4 0 1 0 1 0 0 0 0 0 0])
+  ("addr" .
+   [18 0 0 1])
+  ("memset" .
+   [1 0 0 0 0 0])
+  ("sin_family" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("sin_addr" .
+   [2 0 0 0 0 2 0 0])
+  ("s_addr" .
+   [0 0 2 0 0 0])
+  ("inet_addr" .
+   [1 0 0 0 0 0 1 0 0])
+  ("MULTICAST_ADDRESS" .
+   [0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("sin_port" .
+   [0 0 0 0 0 1 0 0])
+  ("htons" .
+   [1 0 0 0 0])
+  ("MULTICAST_PORT" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("sockaddr" .
+   [1 0 0 0 1 0 0 1])
+  ("struct" .
+   [0 0 0 0 1 0])
+  ("socket_list" .
+   [2 0 0 0 1 0 0 0 0 0 0])
+  ("start" .
+   [1 0 0 0 0])
+  ("b_socket" .
+   [8 0 0 0 0 0 0 0])
+  ("NULL" .
+   [1 0 0 0])
+  ("ifa" .
+   [6 0 0])
+  ("ifaddrs" .
+   [1 0 0 0 0 0 0])
+  ("ifaddr" .
+   [1 0 0 0 0 0])
+  ("malloc" .
+   [1 0 0 0 0 0])
+  ("sizeof" .
+   [0 0 0 1 0 0])
+  ("free" .
+   [4 0 0 0])
+  ("list" .
+   [4 0 0 0])
+  ("free_b_socket" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("sendto" .
+   [1 0 0 0 0 0])
+  ("socket_fd" .
+   [2 0 0 1 0 0 0 0 0])
+  ("packet" .
+   [1 0 1 0 0 0])
+  ("broadcast" .
+   [0 0 0 0 0 0 0 0 1])
+  ("sleep" .
+   [1 0 0 0 0])
+  ("result" .
+   [1 0 0 0 0 0])
+  ("puts" .
+   [1 0 0 0])
+  ("printf" .
+   [3 0 0 0 0 0])))
