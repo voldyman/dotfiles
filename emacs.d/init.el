@@ -37,6 +37,10 @@
 (require 'neotree)
 (global-set-key (kbd "C-x t") 'neotree-toggle)
 
+;; redo+ keybinding
+(require 'redo+)
+(global-set-key (kbd "C-?") 'redo)
+
 ;; y/n is easier than yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -212,6 +216,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Meslo LG S"))))
  )
 
 ;; Use C-tab and C-S-tab to switch buffers
