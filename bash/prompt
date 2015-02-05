@@ -31,8 +31,8 @@ SOLAR_CYAN=$(tput setaf 37)
 SOLAR_GREEN=$(tput setaf 64)
 SOLAR_WHITE=$(tput setaf 254)
 
-style_user="\[${RESET}${BOLD}${SOLAR_ORANGE}\]"
-style_host="\[${RESET}${SOLAR_YELLOW}\]"
+style_user="\[${RESET}${BOLD}${SOLAR_CYAN}\]"
+style_host="\[${RESET}${SOLAR_ORANGE}\]"
 style_path="\[${RESET}${BOLD}${SOLAR_GREEN}\]"
 style_chars="\[${RESET}${SOLAR_WHITE}\]"
 style_branch="${SOLAR_CYAN}"
