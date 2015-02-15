@@ -1,0 +1,15 @@
+#!/bin/sh
+
+PORT=8881
+backend_parameter=""
+
+for i in `seq 0 4`
+do
+    tmpport=$((PORT + i))
+    pantheon-terminal -e "ssh aura.tripent.net -p 53 -D $tmpport"
+
+    backend_parameter="-backend localhost:$tmpport $backend_parameter"
+done
+
+load-balance -port 8050 $backend_parameter
+
