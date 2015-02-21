@@ -47,6 +47,12 @@
 ;; utf8 FTW!!
 (prefer-coding-system 'utf-8)
 
+;; highlight TODO|FIXME|BUG in comments
+(add-hook 'c-mode-common-hook
+               (lambda ()
+                (font-lock-add-keywords nil
+                                        '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+
 ;; better defaults (?)
 (setq x-select-enable-clipboard t
       x-select-enable-primary t
@@ -147,32 +153,10 @@
 ;; my theme
                                         ;(load-theme 'tango-dark t)
 (load-theme 'tangotango t)
-(setq linum-format "%4d ")
+(setq linum-format "%4d\u2502")
 
-;; ruby-mode
-(require 'ruby-mode)
-
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-
-(defun ruby-eval-buffer () (interactive)
-  "Evaluate the buffer with ruby."
-  (shell-command-on-region (point-min) (point-max) "ruby"))
-
-(defun ruby-load-current-buffer ()
-  "Load current buffer's Ruby file into the inferior Ruby process.
-    Saving the current buffer first if needed."
-  (interactive)
-  (let ((buffer (current-buffer)))
-    (or (eq major-mode 'ruby-mode)
-        (error "Not ruby mode"))
-    (save-buffer buffer)
-    (comint-send-string
-     (ruby-proc)
-     (concat "(load '" (buffer-file-name buffer) "'\)\n")
-     )
-    )
-  )
+;; go mode additions
+(add-hook 'go-mode-hook 'go-eldoc-setup)
 
 ;; Clear the eshell
 (defun clear-eshell ()
