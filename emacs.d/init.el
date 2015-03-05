@@ -128,8 +128,7 @@
           (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
           (message "Yanked region to clipboard!")
           (deactivate-mark))
-      (message "No region active; can't yank to clipboard!")))
-  )
+      (message "No region active; can't yank to clipboard!"))))
 
 (defun paste-from-clipboard ()
   (interactive)
@@ -138,9 +137,7 @@
         (clipboard-yank)
         (message "graphics active")
         )
-    (insert (shell-command-to-string "xsel -o -b"))
-    )
-  )
+    (insert (shell-command-to-string "xsel -o -b"))))
 
 ;; copy/paste from clipboard in emacs -nw
 (global-set-key [f8] 'copy-to-clipboard)
@@ -200,8 +197,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Meslo LG S"))))
- )
+ '(default ((t (:family "Meslo LG S")))))
 
 ;; Use C-tab and C-S-tab to switch buffers
 (global-set-key [C-tab] 'other-window)
@@ -222,7 +218,6 @@
     ("lambda" "λ")
 
     ("ar1" "→")
-    ("ar2" "⇒")
-    ))
+    ("ar2" "⇒")))
 
 (abbrev-mode t)
