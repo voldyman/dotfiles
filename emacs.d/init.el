@@ -131,8 +131,7 @@
           (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
           (message "Yanked region to clipboard!")
           (deactivate-mark))
-      (message "No region active; can't yank to clipboard!")))
-  )
+      (message "No region active; can't yank to clipboard!"))))
 
 (defun paste-from-clipboard ()
   (interactive)
@@ -141,9 +140,7 @@
         (clipboard-yank)
         (message "graphics active")
         )
-    (insert (shell-command-to-string "xsel -o -b"))
-    )
-  )
+    (insert (shell-command-to-string "xsel -o -b"))))
 
 ;; copy/paste from clipboard in emacs -nw
 (global-set-key [f8] 'copy-to-clipboard)
@@ -226,7 +223,6 @@
     ("lambda" "λ")
 
     ("ar1" "→")
-    ("ar2" "⇒")
-    ))
+    ("ar2" "⇒")))
 
 (abbrev-mode t)
