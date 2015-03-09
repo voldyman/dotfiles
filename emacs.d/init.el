@@ -18,6 +18,9 @@
 
 ;; Enable Auto-Complete
 (require 'auto-complete)
+(require 'auto-complete-config)
+(require 'go-autocomplete)
+(ac-config-default)
 (auto-complete-mode t)
 
 ;; Enable utf-8 in term mode
@@ -151,8 +154,8 @@
 (global-set-key (kbd "<f10>") 'fix-indentation)
 
 ;; my theme
-                                        ;(load-theme 'tango-dark t)
-(load-theme 'tangotango t)
+   ;(load-theme 'tango-dark t)
+(load-theme 'sanityinc-tomorrow-eighties t)
 (setq linum-format "%4d\u2502")
 
 ;; go mode additions
@@ -193,15 +196,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("a31c86c0a9ba5d06480b02bb912ae58753e09f13edeb07af8927d67c3bb94d68" "4bfdf53bd55a41fbc2e48b8916d764f1e5bac03f74a264ca091cb79bd20080c3" "a53714de04cd4fdb92ed711ae479f6a1d7d5f093880bfd161467c3f589725453" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "a3d519ee30c0aa4b45a277ae41c4fa1ae80e52f04098a2654979b1ab859ab0bf" "d9639ebed5f3709f47b53e4bb8eea98a11455ab9336039cf06e9695a0233d5fb" default)))
+ '(custom-safe-themes
+   (quote
+    ("628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "a31c86c0a9ba5d06480b02bb912ae58753e09f13edeb07af8927d67c3bb94d68" "4bfdf53bd55a41fbc2e48b8916d764f1e5bac03f74a264ca091cb79bd20080c3" "a53714de04cd4fdb92ed711ae479f6a1d7d5f093880bfd161467c3f589725453" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "a3d519ee30c0aa4b45a277ae41c4fa1ae80e52f04098a2654979b1ab859ab0bf" "d9639ebed5f3709f47b53e4bb8eea98a11455ab9336039cf06e9695a0233d5fb" default)))
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Meslo LG S"))))
- )
+ '(default ((t (:family "Meslo LG S")))))
 
 ;; Use C-tab and C-S-tab to switch buffers
 (global-set-key [C-tab] 'other-window)
