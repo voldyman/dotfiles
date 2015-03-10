@@ -10,14 +10,14 @@
         go-mode clojure-mode js2-mode
         markdown-mode php-mode
         cider idomenu
-        nav
+        nav neotree
         vala-mode
         web-mode
         browser-kill-ring
         anzu ;; show number of search matches
         ido-vertical-mode
         paredit 
-        undo-tree-mode))
+        undo-tree-mode redo+))
 
 ;; Installs missing packages
 (defun install-missing-packages ()
