@@ -35,6 +35,11 @@
 ;; use ido vertical
 (ido-vertical-mode t)
 
+;; my theme
+;(load-theme 'tangotango t)
+(load-theme 'sanityinc-tomorrow-eighties t)
+(setq linum-format "%4i\u2502")
+
 ;; Enable Auto-Complete
 (require 'auto-complete)
 (require 'auto-complete-config)
@@ -54,9 +59,8 @@
 (global-set-key (kbd "C-?") 'redo)
 
 ;; highlight current line
-(require 'highlight-current-line)
-(highlight-current-line-set-bg-color "#404040")
 (global-hl-line-mode)
+(set-face-background hl-line-face "#393939")
 
 ;; Enabel recent files and disable backup and autosave file
 (recentf-mode t)
@@ -143,11 +147,6 @@
 (global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
 (global-set-key (kbd "<f10>") 'fix-indentation)
 
-;; my theme
-;(load-theme 'tango-dark t)
-(load-theme 'sanityinc-tomorrow-eighties t)
-(setq linum-format "%4i\u2502")
-
 ;; Clear the eshell
 (defun clear-eshell ()
   (interactive)
@@ -184,17 +183,3 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("c08c41774cf21e574fbaa670b6581df9570697c09a332d967822556e9f235d6c" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
