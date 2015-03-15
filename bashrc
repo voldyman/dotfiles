@@ -114,11 +114,19 @@ if ! shopt -oq posix; then
 fi
 source $HOME/.bash/prompt
 
+# Go realted env vars
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
 # Added .local/bin to $PATH
 export PATH="~/.local/bin:$PATH"
+
+# Add Android SDK to $PATH
+export PATH="/opt/android/sdk/tools:$PATH"
+export PATH="/opt/android/sdk/platform-tools:$PATH"
+
+# Add Android Studio to $PATH
+export PATH="/opt/android/studio/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
