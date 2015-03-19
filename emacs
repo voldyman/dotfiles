@@ -28,6 +28,10 @@
 (show-paren-mode t)
 (size-indication-mode t)
 
+;; Uniquify filenames
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+
 ;; Enable ido mode
 (ido-mode t)
 (setq ido-enable-flex-matching t)
@@ -46,6 +50,14 @@
 (require 'go-autocomplete)
 (ac-config-default)
 (auto-complete-mode t)
+
+;; Go mode essentials
+(require 'go-mode)
+(defun go-mode-setup ()
+  (go-eldoc-setup)
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
+(add-hook 'go-mode-hook 'go-mode-setup)
 
 ;; neotree keybinding
 (require 'neotree)
@@ -80,6 +92,10 @@
 (c-set-offset 'inclass '4)
 (setq c-default-style "bsd"
       c-basic-offset 2)
+
+;; Python Mode
+(require 'jedi)
+(add-hook 'python-mode-hook 'jedi:setup)
 
 ;; Smooth scrolling
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 3))) ;; One line at a time
