@@ -5,18 +5,19 @@
 
 
 (defvar required-packages
-      '(company-mode ;; better auto-complete
+      '(auto-complete
         color-theme-solarized zenburn-theme
-        go-mode clojure-mode js2-mode
+        go-mode go-eldoc
+        clojure-mode js2-mode
         markdown-mode php-mode
-        cider idomenu
-        nav neotree
+        cider idomenu 
+        neotree
         vala-mode
         web-mode
         browser-kill-ring
         anzu ;; show number of search matches
         ido-vertical-mode
-        paredit 
+        paredit  jedi
         undo-tree-mode redo+))
 
 ;; Installs missing packages
@@ -28,3 +29,4 @@
             (package-install package)))
         required-packages)
   (message "Installed all missing packages!"))
+
