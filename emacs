@@ -12,7 +12,7 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-tab-mode nil)
 (setq-default tab-width 4)
-(setq c-basic-indent 2)
+(setq c-basic-indent 4)
 (global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; Enable utf-8 in term mode
@@ -28,6 +28,15 @@
 (show-paren-mode t)
 (size-indication-mode t)
 
+;; Code folding
+(require 'vimish-fold)
+(global-set-key (kbd "C-c C-f") 'vimish-fold)
+(global-set-key (kbd "C-c C-u") 'vimish-fold-unfold)
+(global-set-key (kbd "C-c C-r") 'vimish-fold-delete)
+(global-set-key (kbd "C-c C-t") 'vimish-fold-toggle)
+(global-set-key (kbd "C-c C-n") 'vimish-fold-next-fold)
+(global-set-key (kbd "C-c C-p") 'vimish-fold-previous-fold)
+
 ;; Uniquify filenames
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
@@ -39,8 +48,14 @@
 ;; use ido vertical
 (ido-vertical-mode t)
 
+;; C-n/p is more intuitive in vertical layout
+(defun ido-define-keys () 
+    (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+    (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
+(add-hook 'ido-setup-hook 'ido-define-keys)
+
 ;; my theme
-;(load-theme 'tangotango t)
+;;(load-theme 'tangotango t)
 (load-theme 'sanityinc-tomorrow-eighties t)
 (setq linum-format "%4i\u2502")
 
@@ -58,6 +73,20 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 (add-hook 'go-mode-hook 'go-mode-setup)
+
+;; CC mode
+(defadvice c-lineup-arglist (around my activate)
+  "Improve indentation of continued C++11 lambda function opened as argument."
+  (setq ad-return-value
+        (if (and (equal major-mode 'c++-mode)
+                 (ignore-errors
+                   (save-excursion
+                     (goto-char (c-langelem-pos langelem))
+                     ;; Detect "[...](" or "[...]{". preceded by "," or "(",
+                     ;;   and with unclosed brace.
+                     (looking-at ".*[(,][ \t]*\\[[^]]*\\][ \t]*[({][^}]*$"))))
+            0                           ; no additional indent
+          ad-do-it)))                   ; default behavior
 
 ;; neotree keybinding
 (require 'neotree)
@@ -91,7 +120,7 @@
 (c-set-offset 'access-label '-2)
 (c-set-offset 'inclass '4)
 (setq c-default-style "bsd"
-      c-basic-offset 2)
+      c-basic-offset 4)
 
 ;; Smooth scrolling
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 3))) ;; One line at a time
@@ -103,9 +132,9 @@
 
 ;; highlight TODO|FIXME|BUG in comments
 (add-hook 'c-mode-common-hook
-               (lambda ()
-                (font-lock-add-keywords nil
-                                        '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+          (lambda ()
+            (font-lock-add-keywords nil
+                                    '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
 
 ;; better defaults (?)
 (setq x-select-enable-clipboard t
@@ -151,13 +180,19 @@
         (message "graphics active"))
     (insert (shell-command-to-string "xsel -o -b"))))
 
+(defun clear-clipboard ()
+  (interactive)
+  (if (display-graphic-p)
+      (insert (shell-command-to-string "xsel -b  --clear"))))
+
 ;; copy/paste from clipboard in emacs -nw
+(global-set-key [f7] 'clear-clipboard)
 (global-set-key [f8] 'copy-to-clipboard)
 (global-set-key [f9] 'paste-from-clipboard)
 
 ;; Some shortcuts
-(global-set-key (kbd "<f12>") 'delete-trailing-whitespace)
-(global-set-key (kbd "<f10>") 'fix-indentation)
+(global-set-key [f12] 'delete-trailing-whitespace)
+(global-set-key [f10] 'fix-indentation)
 
 ;; Clear the eshell
 (defun clear-eshell ()
@@ -175,8 +210,8 @@
             (define-key map (kbd "C-c l") 'clear-eshell)
             map))
 
-(add-hook 'eshell (lambda ()
-                    (eshell-cust-mode)))
+(add-hook 'eshell-mode-hook (lambda ()
+                              (eshell-cust-mode)))
 
 
 ;; Use C-tab and C-S-tab to switch buffers
@@ -206,8 +241,11 @@
    (vector "#cccccc" "#f2777a" "#99cc99" "#ffcc66" "#6699cc" "#cc99cc" "#66cccc" "#2d2d2d"))
  '(custom-safe-themes
    (quote
-    ("628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
+    ("81a4b3d3751940b01617381397f31168420252e50cc9600cc0fc168ff4819ced" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(fci-rule-color "#515151")
+ '(package-selected-packages
+   (quote
+    (vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
