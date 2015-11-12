@@ -7,18 +7,19 @@
 (defvar required-packages
       '(auto-complete
         color-theme-solarized zenburn-theme
+        aurora-theme
         go-mode go-eldoc
         clojure-mode js2-mode
         markdown-mode php-mode
+        vala-mode web-mode
         cider idomenu 
         neotree
-        vala-mode
-        web-mode
         browser-kill-ring
         anzu ;; show number of search matches
         ido-vertical-mode
         paredit  jedi
-        undo-tree-mode redo+))
+        undo-tree-mode redo+
+        vimish-fold))
 
 ;; Installs missing packages
 (defun install-missing-packages ()

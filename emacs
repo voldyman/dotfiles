@@ -56,7 +56,8 @@
 
 ;; my theme
 ;;(load-theme 'tangotango t)
-(load-theme 'sanityinc-tomorrow-eighties t)
+;;(load-theme 'sanityinc-tomorrow-eighties t)
+(load-theme 'aurora t)
 (setq linum-format "%4i\u2502")
 
 ;; Enable Auto-Complete
@@ -241,11 +242,11 @@
    (vector "#cccccc" "#f2777a" "#99cc99" "#ffcc66" "#6699cc" "#cc99cc" "#66cccc" "#2d2d2d"))
  '(custom-safe-themes
    (quote
-    ("81a4b3d3751940b01617381397f31168420252e50cc9600cc0fc168ff4819ced" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
+    ("3b0a350918ee819dca209cec62d867678d7dac74f6195f5e3799aa206358a983" "dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" "868f73b5cf78e72ca2402e1d48675e49cc9a9619c5544af7bf216515d22b58e7" "81a4b3d3751940b01617381397f31168420252e50cc9600cc0fc168ff4819ced" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(fci-rule-color "#515151")
  '(package-selected-packages
    (quote
-    (vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
+    (zonokai-theme aurora-theme thrift railscasts-theme cmake-ide zenburn-theme vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
