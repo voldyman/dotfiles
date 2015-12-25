@@ -19,7 +19,8 @@
         ido-vertical-mode
         paredit  jedi
         undo-tree-mode redo+
-        vimish-fold))
+        vimish-fold
+        smex))
 
 ;; Installs missing packages
 (defun install-missing-packages ()
