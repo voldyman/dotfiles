@@ -63,7 +63,10 @@
 ;; my theme
 ;;(load-theme 'tangotango t)
 ;;(load-theme 'sanityinc-tomorrow-eighties t)
-(load-theme 'aurora t)
+;;(load-theme 'aurora t)
+;;(color-theme-monokai)
+(load-theme 'ample t)
+
 (setq linum-format "%4i\u2502")
 
 ;; Enable Auto-Complete
@@ -248,11 +251,11 @@
    (vector "#cccccc" "#f2777a" "#99cc99" "#ffcc66" "#6699cc" "#cc99cc" "#66cccc" "#2d2d2d"))
  '(custom-safe-themes
    (quote
-    ("f04122bbc305a202967fa1838e20ff741455307c2ae80a26035fbf5d637e325f" "790e74b900c074ac8f64fa0b610ad05bcfece9be44e8f5340d2d94c1e47538de" "a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64" "3b0a350918ee819dca209cec62d867678d7dac74f6195f5e3799aa206358a983" "dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" "868f73b5cf78e72ca2402e1d48675e49cc9a9619c5544af7bf216515d22b58e7" "81a4b3d3751940b01617381397f31168420252e50cc9600cc0fc168ff4819ced" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
+    ("4f5bb895d88b6fe6a983e63429f154b8d939b4a8c581956493783b2515e22d6d" "3632cf223c62cb7da121be0ed641a2243f7ec0130178722554e613c9ab3131de" "66132890ee1f884b4f8e901f0c61c5ed078809626a547dbefbb201f900d03fd8" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "f04122bbc305a202967fa1838e20ff741455307c2ae80a26035fbf5d637e325f" "790e74b900c074ac8f64fa0b610ad05bcfece9be44e8f5340d2d94c1e47538de" "a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64" "3b0a350918ee819dca209cec62d867678d7dac74f6195f5e3799aa206358a983" "dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" "868f73b5cf78e72ca2402e1d48675e49cc9a9619c5544af7bf216515d22b58e7" "81a4b3d3751940b01617381397f31168420252e50cc9600cc0fc168ff4819ced" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(fci-rule-color "#515151")
  '(package-selected-packages
    (quote
-    (smex color-theme-monokai color-theme-molokai alect-themes zonokai-theme aurora-theme thrift railscasts-theme cmake-ide zenburn-theme vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
+    (ample-theme tuareg flymake flymake-python-pyflakes flymake-vala flyspell-lazy flyspell-popup flycheck-vala flycheck-ocaml flycheck-google-cpplint flycheck-clangcheck caml arduino-mode smex color-theme-monokai color-theme-molokai alect-themes zonokai-theme aurora-theme thrift railscasts-theme cmake-ide zenburn-theme vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
