@@ -28,6 +28,23 @@
 (show-paren-mode t)
 (size-indication-mode t)
 
+;; Move text up down
+(global-set-key (kbd "<M-S-up>") 'move-text-up)
+(global-set-key (kbd "<M-S-down>") 'move-text-down)
+
+;; Automatically insert quotes and brackets pairs
+(electric-pair-mode t)
+
+;; Use C-ret for rectangular selection
+(cua-selection-mode t)
+
+;; Automatically reload file when changed on disk
+(global-auto-revert-mode)
+(global-discover-mode t)
+
+;; Run zeal at point
+(global-set-key (kbd "C-c a") 'zeal-at-point)
+
 ;; Code folding
 (require 'vimish-fold)
 (global-set-key (kbd "C-c C-f") 'vimish-fold)
@@ -82,7 +99,7 @@
 
 ;; Add GOPATH/bin to PATH
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/go/bin"))
-        
+
 ;; Go mode essentials
 (require 'go-mode)
 (defun go-mode-setup ()
@@ -291,7 +308,7 @@
  '(fci-rule-color "#515151")
  '(package-selected-packages
    (quote
-    (company-go company-irony company-irony-c-headers auto-complete-clang-async ac-clang cpputils-cmake badger-theme irony-eldoc flycheck-irony flymake-go powerline material-theme ample-theme tuareg flymake flymake-python-pyflakes flymake-vala flyspell-lazy flyspell-popup flycheck-vala flycheck-ocaml flycheck-google-cpplint flycheck-clangcheck caml arduino-mode smex color-theme-monokai color-theme-molokai alect-themes zonokai-theme aurora-theme thrift railscasts-theme cmake-ide zenburn-theme vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
+    (discover company-go company-irony company-irony-c-headers auto-complete-clang-async ac-clang cpputils-cmake badger-theme irony-eldoc flycheck-irony flymake-go material-theme ample-theme tuareg flymake flymake-python-pyflakes flymake-vala flyspell-lazy flyspell-popup flycheck-vala flycheck-ocaml flycheck-google-cpplint flycheck-clangcheck caml arduino-mode smex color-theme-monokai color-theme-molokai alect-themes zonokai-theme aurora-theme thrift railscasts-theme cmake-ide zenburn-theme vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
