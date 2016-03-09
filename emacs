@@ -65,21 +65,29 @@
 ;;(load-theme 'sanityinc-tomorrow-eighties t)
 ;;(load-theme 'aurora t)
 ;;(color-theme-monokai)
-(load-theme 'ample t)
+;;(load-theme 'ample t)
+;;(load-theme 'material t)
+(load-theme 'badger t)
 
 (setq linum-format "%4i\u2502")
 
-;; Enable Auto-Complete
-(require 'auto-complete)
-(require 'auto-complete-config)
-(require 'go-autocomplete)
-(ac-config-default)
-(auto-complete-mode t)
+(require 'company)
+(require 'company-go)
+(add-hook 'after-init-hook 'global-company-mode)
 
+(setq company-tooltip-limit 20)                      ; bigger popup window
+(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+(setq company-echo-delay 0)                          ; remove annoying blinking
+(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+
+;; Add GOPATH/bin to PATH
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/go/bin"))
+        
 ;; Go mode essentials
 (require 'go-mode)
 (defun go-mode-setup ()
-  (go-eldoc-setup)
+  (set (make-local-variable 'company-backends) '(company-go))
+  (company-mode)
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 (add-hook 'go-mode-hook 'go-mode-setup)
@@ -98,6 +106,33 @@
             0                           ; no additional indent
           ad-do-it)))                   ; default behavior
 
+;; cpputils-cmake BEGIN
+(require 'cpputils-cmake)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (cppcm-reload-all)
+              )))
+;; OPTIONAL, somebody reported that they can use this package with Fortran
+(add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
+;; OPTIONAL, avoid typing full path when starting gdb
+(global-set-key (kbd "C-c C-g")
+ '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
+;; OPTIONAL, some users need specify extra flags forwarded to compiler
+(setq cppcm-extra-preprocss-flags-from-user '("-I/usr/src/linux/include" "-DNDEBUG"))
+
+(require 'irony)
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+;; then company-irony
+(require 'company-irony)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+;; cpputils-cmake END
+
+
 ;; neotree keybinding
 (require 'neotree)
 (global-set-key (kbd "C-x t") 'neotree-toggle)
@@ -110,8 +145,9 @@
 (global-set-key (kbd "C-?") 'redo)
 
 ;; highlight current line
-(global-hl-line-mode)
-(set-face-background hl-line-face "#393939")
+;;(global-hl-line-mode)
+;;(set-face-background hl-line-face "#393939")
+;;(powerline-default-theme)
 
 ;; Enabel recent files and disable backup and autosave file
 (recentf-mode t)
@@ -251,11 +287,11 @@
    (vector "#cccccc" "#f2777a" "#99cc99" "#ffcc66" "#6699cc" "#cc99cc" "#66cccc" "#2d2d2d"))
  '(custom-safe-themes
    (quote
-    ("4f5bb895d88b6fe6a983e63429f154b8d939b4a8c581956493783b2515e22d6d" "3632cf223c62cb7da121be0ed641a2243f7ec0130178722554e613c9ab3131de" "66132890ee1f884b4f8e901f0c61c5ed078809626a547dbefbb201f900d03fd8" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "f04122bbc305a202967fa1838e20ff741455307c2ae80a26035fbf5d637e325f" "790e74b900c074ac8f64fa0b610ad05bcfece9be44e8f5340d2d94c1e47538de" "a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64" "3b0a350918ee819dca209cec62d867678d7dac74f6195f5e3799aa206358a983" "dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" "868f73b5cf78e72ca2402e1d48675e49cc9a9619c5544af7bf216515d22b58e7" "81a4b3d3751940b01617381397f31168420252e50cc9600cc0fc168ff4819ced" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
+    ("9b402e9e8f62024b2e7f516465b63a4927028a7055392290600b776e4a5b9905" "e97dbbb2b1c42b8588e16523824bc0cb3a21b91eefd6502879cf5baa1fa32e10" "d4e9f95acd51433b776f1127143bbc7d0f1d41112d547e5b7a9a506be369dc39" "4f5bb895d88b6fe6a983e63429f154b8d939b4a8c581956493783b2515e22d6d" "3632cf223c62cb7da121be0ed641a2243f7ec0130178722554e613c9ab3131de" "66132890ee1f884b4f8e901f0c61c5ed078809626a547dbefbb201f900d03fd8" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "f04122bbc305a202967fa1838e20ff741455307c2ae80a26035fbf5d637e325f" "790e74b900c074ac8f64fa0b610ad05bcfece9be44e8f5340d2d94c1e47538de" "a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64" "3b0a350918ee819dca209cec62d867678d7dac74f6195f5e3799aa206358a983" "dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" "868f73b5cf78e72ca2402e1d48675e49cc9a9619c5544af7bf216515d22b58e7" "81a4b3d3751940b01617381397f31168420252e50cc9600cc0fc168ff4819ced" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(fci-rule-color "#515151")
  '(package-selected-packages
    (quote
-    (ample-theme tuareg flymake flymake-python-pyflakes flymake-vala flyspell-lazy flyspell-popup flycheck-vala flycheck-ocaml flycheck-google-cpplint flycheck-clangcheck caml arduino-mode smex color-theme-monokai color-theme-molokai alect-themes zonokai-theme aurora-theme thrift railscasts-theme cmake-ide zenburn-theme vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
+    (company-go company-irony company-irony-c-headers auto-complete-clang-async ac-clang cpputils-cmake badger-theme irony-eldoc flycheck-irony flymake-go powerline material-theme ample-theme tuareg flymake flymake-python-pyflakes flymake-vala flyspell-lazy flyspell-popup flycheck-vala flycheck-ocaml flycheck-google-cpplint flycheck-clangcheck caml arduino-mode smex color-theme-monokai color-theme-molokai alect-themes zonokai-theme aurora-theme thrift railscasts-theme cmake-ide zenburn-theme vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
