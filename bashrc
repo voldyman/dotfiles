@@ -40,6 +40,8 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+if [[ -z $LANG ]]; then export LANG=en_US.utf8; fi
+
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -112,6 +114,7 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
+
 source $HOME/.bash/prompt
 
 # Go realted env vars
@@ -120,13 +123,11 @@ export PATH=$PATH:$GOPATH/bin
 
 # Added .local/bin to $PATH
 export PATH="~/.local/bin:$PATH"
+export PATH="/usr/local/bin/:$PATH"
 
 # Add Android SDK to $PATH
-export PATH="/opt/android/sdk/tools:$PATH"
-export PATH="/opt/android/sdk/platform-tools:$PATH"
+#export PATH="/opt/android/sdk/tools:$PATH"
+#export PATH="/opt/android/sdk/platform-tools:$PATH"
 
 # Add Android Studio to $PATH
-export PATH="/opt/android/studio/bin:$PATH"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/opt/android/studio/bin:$PATH"
