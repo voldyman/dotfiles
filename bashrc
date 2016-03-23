@@ -91,6 +91,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+export PATH="/usr/local/bin/:$PATH"
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -115,6 +117,10 @@ if ! shopt -oq posix; then
     fi
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
 source $HOME/.bash/prompt
 
 # Go realted env vars
@@ -123,7 +129,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # Added .local/bin to $PATH
 export PATH="~/.local/bin:$PATH"
-export PATH="/usr/local/bin/:$PATH"
 
 # Add Android SDK to $PATH
 #export PATH="/opt/android/sdk/tools:$PATH"
