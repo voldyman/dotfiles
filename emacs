@@ -22,11 +22,26 @@
 ;; delete selected text
 (delete-selection-mode t)
 
+;; Fixme mode
+(use-package fixme-mode
+  :config
+  (fixme-mode t))
+
 ;; Lines and columns
 (global-linum-mode t)
 (column-number-mode t)
 (show-paren-mode t)
 (size-indication-mode t)
+
+;; User powerline
+(use-package powerline
+  :config
+  (powerline-default-theme)
+  )
+
+;; mac specfic stuff
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'super)
 
 ;; Move text up down
 (global-set-key (kbd "<M-S-up>") 'move-text-up)
@@ -46,17 +61,24 @@
 (global-set-key (kbd "C-c a") 'zeal-at-point)
 
 ;; Code folding
-(require 'vimish-fold)
-(global-set-key (kbd "C-c C-f") 'vimish-fold)
-(global-set-key (kbd "C-c C-u") 'vimish-fold-unfold)
-(global-set-key (kbd "C-c C-r") 'vimish-fold-delete)
-(global-set-key (kbd "C-c C-t") 'vimish-fold-toggle)
-(global-set-key (kbd "C-c C-n") 'vimish-fold-next-fold)
-(global-set-key (kbd "C-c C-p") 'vimish-fold-previous-fold)
+(use-package vimish-fold
+  :ensure t
+  :defer t
+  :init
+  :bind
+  (("C-c C-f" . vimish-fold)
+   ("C-c C-u" . vimish-fold-unfold)
+   ("C-c C-r" . vimish-fold-delete)
+   ("C-c C-t" . vimish-fold-toggle)
+   ("C-c C-n" . vimish-fold-next-fold)
+   ("C-c C-p" . vimish-fold-previous-fold))
+  )
 
 ;; Uniquify filenames
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward)
+(use-package uniquify
+  :config
+  (setq uniquify-buffer-name-style 'post-forward)
+  )
 
 ;; Enable ido mode
 (ido-mode t)
@@ -70,12 +92,12 @@
     (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
 (add-hook 'ido-setup-hook 'ido-define-keys)
 
-(require 'smex) ; Not needed if you use package.el
-(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
-                  ; when Smex is auto-initialized on its first run.
-
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(use-package smex
+  :config
+  (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+  :bind             ; when Smex is auto-initialized on its first run.
+  ("M-x" . smex)
+  ("M-X" . smex-major-mode-commands)) 
 
 ;; my theme
 ;;(load-theme 'tangotango t)
@@ -84,7 +106,8 @@
 ;;(color-theme-monokai)
 ;;(load-theme 'ample t)
 ;;(load-theme 'material t)
-(load-theme 'badger t)
+;;(load-theme 'badger t)
+(load-theme 'spacemacs-dark t)
 
 (setq linum-format "%4i\u2502")
 
@@ -99,6 +122,8 @@
 
 ;; Add GOPATH/bin to PATH
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/go/bin"))
+;; Add brew path to PATH
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 
 ;; Go mode essentials
 (require 'go-mode)
@@ -123,43 +148,19 @@
             0                           ; no additional indent
           ad-do-it)))                   ; default behavior
 
-;; cpputils-cmake BEGIN
-(require 'cpputils-cmake)
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (if (derived-mode-p 'c-mode 'c++-mode)
-                (cppcm-reload-all)
-              )))
-;; OPTIONAL, somebody reported that they can use this package with Fortran
-(add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
-;; OPTIONAL, avoid typing full path when starting gdb
-(global-set-key (kbd "C-c C-g")
- '(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
-;; OPTIONAL, some users need specify extra flags forwarded to compiler
-(setq cppcm-extra-preprocss-flags-from-user '("-I/usr/src/linux/include" "-DNDEBUG"))
-
-(require 'irony)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
-;; then company-irony
-(require 'company-irony)
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
-;; cpputils-cmake END
-
 
 ;; neotree keybinding
-(require 'neotree)
-(global-set-key (kbd "C-x t") 'neotree-toggle)
+(use-package neotree
+  :bind
+  ("C-x t" . neotree-toggle))
 
 ;; y/n is easier than yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; redo+ keybinding
-(require 'redo+)
-(global-set-key (kbd "C-?") 'redo)
+(use-package redo+
+  :bind
+  ("C-?" . redo))
 
 ;; highlight current line
 ;;(global-hl-line-mode)
@@ -172,12 +173,13 @@
 (setq auto-save-default nil)
 
 ;; Vala mode
-(require 'cl) ; workround for cl mode bug for vala
-(autoload 'vala-mode "vala-mode.el" "Major mode for editing Vala code." t)
-(add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))
-(add-to-list 'auto-mode-alist '("\\.vapi$" . vala-mode))
-(add-to-list 'file-coding-system-alist '("\\.vala$" . utf-8))
-(add-to-list 'file-coding-system-alist '("\\.vapi$" . utf-8))
+(use-package cl ; workround for cl mode bug for vala
+  :config
+  (autoload 'vala-mode "vala-mode.el" "Major mode for editing Vala code." t)
+  (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))
+  (add-to-list 'auto-mode-alist '("\\.vapi$" . vala-mode))
+  (add-to-list 'file-coding-system-alist '("\\.vala$" . utf-8))
+  (add-to-list 'file-coding-system-alist '("\\.vapi$" . utf-8)))
 
 ;; C++ Mode
 (c-set-offset 'access-label '-2)
@@ -285,52 +287,61 @@
 
 ;; set font for all windows
 ;;(add-to-list 'default-frame-alist '(font . "Monaco-10"))
-(add-to-list 'default-frame-alist '(font . "Meslo LG S-10"))
+;;(add-to-list 'default-frame-alist '(font . "Meslo LG S-10"))
+(set-default-font "Source Code Pro-13")
 
+;; == irony-mode ==
+(use-package irony
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
+  :config
+  (custom-set-variables
+   '(irony-additional-clang-options
+     '("-I/Library/Developer/CommandLineTools/usr/include/c++/v1")))
+  ;; replace the `completion-at-point' and `complete-symbol' bindings in
+  ;; irony-mode's buffers by irony-mode's function
+  (defun my-irony-mode-hook ()
+    (define-key irony-mode-map [remap completion-at-point]
+      'irony-completion-at-point-async)
+    (define-key irony-mode-map [remap complete-symbol]
+      'irony-completion-at-point-async))
+  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  )
+
+;; == company-mode ==
+(use-package company
+  :ensure t
+  :defer t
+  :init (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  (use-package company-irony :ensure t :defer t)
+  (setq company-idle-delay              nil
+	company-minimum-prefix-length   2
+	company-show-numbers            t
+	company-tooltip-limit           20
+	company-dabbrev-downcase        nil
+	company-backends                '((company-irony company-gtags))
+	)
+  :bind ("C-;" . company-complete-common)
+  )
 
 ;; Add ELPA package repository
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#cccccc" "#f2777a" "#99cc99" "#ffcc66" "#6699cc" "#cc99cc" "#66cccc" "#2d2d2d"))
  '(custom-safe-themes
    (quote
-    ("9b402e9e8f62024b2e7f516465b63a4927028a7055392290600b776e4a5b9905" "e97dbbb2b1c42b8588e16523824bc0cb3a21b91eefd6502879cf5baa1fa32e10" "d4e9f95acd51433b776f1127143bbc7d0f1d41112d547e5b7a9a506be369dc39" "4f5bb895d88b6fe6a983e63429f154b8d939b4a8c581956493783b2515e22d6d" "3632cf223c62cb7da121be0ed641a2243f7ec0130178722554e613c9ab3131de" "66132890ee1f884b4f8e901f0c61c5ed078809626a547dbefbb201f900d03fd8" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "f04122bbc305a202967fa1838e20ff741455307c2ae80a26035fbf5d637e325f" "790e74b900c074ac8f64fa0b610ad05bcfece9be44e8f5340d2d94c1e47538de" "a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64" "3b0a350918ee819dca209cec62d867678d7dac74f6195f5e3799aa206358a983" "dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" "868f73b5cf78e72ca2402e1d48675e49cc9a9619c5544af7bf216515d22b58e7" "81a4b3d3751940b01617381397f31168420252e50cc9600cc0fc168ff4819ced" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
- '(fci-rule-color "#515151")
- '(package-selected-packages
-   (quote
-    (discover company-go company-irony company-irony-c-headers auto-complete-clang-async ac-clang cpputils-cmake badger-theme irony-eldoc flycheck-irony flymake-go material-theme ample-theme tuareg flymake flymake-python-pyflakes flymake-vala flyspell-lazy flyspell-popup flycheck-vala flycheck-ocaml flycheck-google-cpplint flycheck-clangcheck caml arduino-mode smex color-theme-monokai color-theme-molokai alect-themes zonokai-theme aurora-theme thrift railscasts-theme cmake-ide zenburn-theme vimish-fold ac-html ac-js2 ac-php ac-python auto-complete-c-headers auto-complete-clang darkmine-theme zen-and-art-theme idomenu ido-vertical-mode zeal-at-point cmake-mode web-mode auto-complete concurrent ctable deferred go-mode popup yasnippet vala-snippets vala-mode redo+ python-environment php-mode neotree markdown-mode go-eldoc go-autocomplete epc color-theme-sanityinc-tomorrow)))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#f2777a")
-     (40 . "#f99157")
-     (60 . "#ffcc66")
-     (80 . "#99cc99")
-     (100 . "#66cccc")
-     (120 . "#6699cc")
-     (140 . "#cc99cc")
-     (160 . "#f2777a")
-     (180 . "#f99157")
-     (200 . "#ffcc66")
-     (220 . "#99cc99")
-     (240 . "#66cccc")
-     (260 . "#6699cc")
-     (280 . "#cc99cc")
-     (300 . "#f2777a")
-     (320 . "#f99157")
-     (340 . "#ffcc66")
-     (360 . "#99cc99"))))
- '(vc-annotate-very-old-color nil))
+    ("ea489f6710a3da0738e7dbdfc124df06a4e3ae82f191ce66c2af3e0a15e99b90" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
