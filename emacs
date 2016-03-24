@@ -330,6 +330,22 @@
   :bind ("C-;" . company-complete-common)
   )
 
+;; == ycmd ==
+(use-package ycmd
+  :ensure t
+  :init
+  (set-variable 'ycmd-global-config
+                "~/.emacs.d/ycmd_extra_config.py")
+  (set-variable 'ycmd-server-command
+                '("python2.7" "/Users/voldyman/Code/ycmd/ycmd"))
+
+  :config
+  (add-hook 'after-init-hook #'global-ycmd-mode))
+
+(use-package company-ycmd
+  :init
+  (company-ycmd-setup))
+
 ;; Add ELPA package repository
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
