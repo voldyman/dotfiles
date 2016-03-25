@@ -111,28 +111,22 @@
 
 (setq linum-format "%4i\u2502")
 
-(require 'company)
-(require 'company-go)
-(add-hook 'after-init-hook 'global-company-mode)
-
-(setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
-(setq company-echo-delay 0)                          ; remove annoying blinking
-(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-
 ;; Add GOPATH/bin to PATH
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/go/bin"))
 ;; Add brew path to PATH
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 
 ;; Go mode essentials
-(require 'go-mode)
-(defun go-mode-setup ()
-  (set (make-local-variable 'company-backends) '(company-go))
-  (company-mode)
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save))
-(add-hook 'go-mode-hook 'go-mode-setup)
+(use-package go-mode
+  :ensure t
+  :defer t
+  :config
+  (defun go-mode-setup ()
+    (set (make-local-variable 'company-backends) '(company-go))
+    (setq gofmt-command "goimports")
+    (add-hook 'before-save-hook 'gofmt-before-save))
+  (add-hook 'go-mode-hook 'go-mode-setup)
+  (add-hook 'go-mode-hook 'company-mode-hook))
 
 ;; CC mode
 (defadvice c-lineup-arglist (around my activate)
@@ -290,18 +284,43 @@
 ;;(add-to-list 'default-frame-alist '(font . "Meslo LG S-10"))
 (set-default-font "Source Code Pro-13")
 
+;; == company-mode ==
+(use-package company
+  :ensure t
+  :defer t
+  :init (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  (use-package company-go :ensure t :defer t)
+  (use-package company-irony :ensure t :defer t)
+  (use-package company-irony-c-headers :ensure t :defer t)
+
+  (setq company-idle-delay              0.3
+        company-minimum-prefix-length   2
+        company-begin-commands          '(self-insert-command)
+        company-show-numbers            t
+        company-tooltip-limit           20
+        company-dabbrev-downcase        nil
+        company-echo-delay              0
+        company-backends                '((company-elisp
+                                           company-gtags)))
+
+  :bind ("C-;" . company-complete-common))
+
 ;; == irony-mode ==
 (use-package irony
   :ensure t
+  :ensure company-irony
   :defer t
   :init
   (add-hook 'c++-mode-hook 'irony-mode)
   (add-hook 'c-mode-hook 'irony-mode)
   (add-hook 'objc-mode-hook 'irony-mode)
+
   :config
   (custom-set-variables
    '(irony-additional-clang-options
-     '("-I/Library/Developer/CommandLineTools/usr/include/c++/v1")))
+     '("-I/Library/Developer/CommandLineTools/usr/include/c++/v1"
+       "-std=c++11")))
   ;; replace the `completion-at-point' and `complete-symbol' bindings in
   ;; irony-mode's buffers by irony-mode's function
   (defun my-irony-mode-hook ()
@@ -309,26 +328,27 @@
       'irony-completion-at-point-async)
     (define-key irony-mode-map [remap complete-symbol]
       'irony-completion-at-point-async))
-  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-  )
 
-;; == company-mode ==
-(use-package company
+  (add-to-list 'company-backends 'company-irony)
+  (irony-eldoc)
+  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+;;  (add-hook 'irony-mode-hook 'irony-eldoc))
+
+(use-package company-c-headers
   :ensure t
-  :defer t
-  :init (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (use-package company-irony :ensure t :defer t)
-  (setq company-idle-delay              nil
-	company-minimum-prefix-length   2
-	company-show-numbers            t
-	company-tooltip-limit           20
-	company-dabbrev-downcase        nil
-	company-backends                '((company-irony company-gtags))
-	)
-  :bind ("C-;" . company-complete-common)
-  )
+  (add-to-list 'company-backends 'company-c-headers))
+
+(use-package irony-eldoc
+  :commands irony-eldoc
+  :init
+  (add-hook 'irony-mode-hook 'irony-eldoc))
+
+(use-package flycheck-irony
+  :commands flycheck-irony-setup
+  :init
+  (add-hook 'irony-mode-hook 'flycheck-irony-setup))
 
 ;; == ycmd ==
 (use-package ycmd
@@ -340,6 +360,7 @@
                 '("python2.7" "/Users/voldyman/Code/ycmd/ycmd"))
 
   :config
+  (add-to-list 'company-backends 'company-ycmd)
   (add-hook 'after-init-hook #'global-ycmd-mode))
 
 (use-package company-ycmd
