@@ -36,8 +36,7 @@
 ;; User powerline
 (use-package powerline
   :config
-  (powerline-default-theme)
-  )
+  (powerline-default-theme))
 
 ;; mac specfic stuff
 (setq mac-command-modifier 'meta)
@@ -112,21 +111,14 @@
 (setq linum-format "%4i\u2502")
 
 ;; Add GOPATH/bin to PATH
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/go/bin"))
+(use-package exec-path-from-shell
+  :ensure t)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+(exec-path-from-shell-copy-env "GOPATH")
+
 ;; Add brew path to PATH
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-
-;; Go mode essentials
-(use-package go-mode
-  :ensure t
-  :defer t
-  :config
-  (defun go-mode-setup ()
-    (set (make-local-variable 'company-backends) '(company-go))
-    (setq gofmt-command "goimports")
-    (add-hook 'before-save-hook 'gofmt-before-save))
-  (add-hook 'go-mode-hook 'go-mode-setup)
-  (add-hook 'go-mode-hook 'company-mode-hook))
 
 ;; CC mode
 (defadvice c-lineup-arglist (around my activate)
@@ -282,7 +274,7 @@
 ;; set font for all windows
 ;;(add-to-list 'default-frame-alist '(font . "Monaco-10"))
 ;;(add-to-list 'default-frame-alist '(font . "Meslo LG S-10"))
-(set-default-font "Source Code Pro-13")
+(set-default-font "Source Code Pro-14")
 
 ;; == company-mode ==
 (use-package company
@@ -329,16 +321,12 @@
     (define-key irony-mode-map [remap complete-symbol]
       'irony-completion-at-point-async))
 
-  (add-to-list 'company-backends 'company-irony)
+  (add-to-list 'company-backends
+               'company-irony 'company-irony-c-headers)
   (irony-eldoc)
   (add-hook 'irony-mode-hook 'my-irony-mode-hook)
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 ;;  (add-hook 'irony-mode-hook 'irony-eldoc))
-
-(use-package company-c-headers
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-c-headers))
 
 (use-package irony-eldoc
   :commands irony-eldoc
@@ -346,6 +334,7 @@
   (add-hook 'irony-mode-hook 'irony-eldoc))
 
 (use-package flycheck-irony
+  :ensure t
   :commands flycheck-irony-setup
   :init
   (add-hook 'irony-mode-hook 'flycheck-irony-setup))
@@ -360,12 +349,28 @@
                 '("python2.7" "/Users/voldyman/Code/ycmd/ycmd"))
 
   :config
-  (add-to-list 'company-backends 'company-ycmd)
+  (with-eval-after-load 'company
+    '(push 'company-ycmd company-backends))
   (add-hook 'after-init-hook #'global-ycmd-mode))
 
 (use-package company-ycmd
   :init
   (company-ycmd-setup))
+
+;; Go mode essentials
+(use-package go-mode
+  :ensure t
+  :defer t
+  :bind
+  ("M-." . godef-jump)
+  :config
+  (defun go-mode-setup ()
+    (set (make-local-variable 'company-backends) '(company-go))
+    (setq gofmt-command "goimports")
+    (go-eldoc-setup)
+    (add-hook 'before-save-hook 'gofmt-before-save))
+  (add-hook 'go-mode-hook 'go-mode-setup))
+
 
 ;; Add ELPA package repository
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -378,7 +383,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("ea489f6710a3da0738e7dbdfc124df06a4e3ae82f191ce66c2af3e0a15e99b90" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))))
+    ("770181eda0f652ef9293e8db103a7e5ca629c516ca33dfa4709e2c8a0e7120f3" "ea489f6710a3da0738e7dbdfc124df06a4e3ae82f191ce66c2af3e0a15e99b90" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(irony-additional-clang-options
+   (quote
+    ("-I/Library/Developer/CommandLineTools/usr/include/c++/v1" "-std=c++11"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
